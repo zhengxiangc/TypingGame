@@ -1,0 +1,60 @@
+# Build directories（CMake 输出目录，见 Coding/ReadMe.md：classexam/build）
+build/
+*/build/
+*/*/build/
+
+# Qt generated files
+*.pro.user
+*.user
+*.qm
+*.pyc
+
+# Compiled files
+*.exe
+*.dll
+*.so
+*.dylib
+*.o
+*.obj
+*.lib
+
+# Visual Studio files
+.vs/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Qt Creator files
+*.user.*
+*.creator*
+*.files
+*.includes
+*.config
+
+# Debug/Release directories
+Debug/
+Release/
+*/Debug/
+*/Release/
+
+# Backup files
+*.bak
+*.swp
+*~
+
+# 运行期产物（相对可执行文件目录，见 Coding/ReadMe.md §7）
+logs/
+telemetry/
+
+# 本地 CMake 用户预设（可选，不入库）
+CMakeUserPresets.json
+
+学习文件/
