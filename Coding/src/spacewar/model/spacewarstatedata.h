@@ -1,9 +1,8 @@
 /* -------------------------------------------------------------------------
 //  文件名      :  spacewarstatedata.h
-//  创建者      :  classexam
+//  创建者      :  陈正翔
 //  创建时间    :  2026-05-11
 //  功能描述    :  Mutable Space War session state including flying reward word progress.
-//  版权信息    :  Copyright (c) classexam. All rights reserved.
 // -------------------------------------------------------------------------*/
 
 #ifndef __CLASSEXAM_SPACEWARSTATEDATA_H__

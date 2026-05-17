@@ -1,9 +1,8 @@
 /* -------------------------------------------------------------------------
 //  文件名      :  spacewarconfig.h
-//  创建者      :  classexam
+//  创建者      :  陈正翔
 //  创建时间    :  2026-05-11
 //  功能描述    :  User-tunable Space War parameters (QSettings-backed in the view).
-//  版权信息    :  Copyright (c) classexam. All rights reserved.
 // -------------------------------------------------------------------------*/
 
 #ifndef __CLASSEXAM_SPACEWARCONFIG_H__

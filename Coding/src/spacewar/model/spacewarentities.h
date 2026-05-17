@@ -1,9 +1,8 @@
 /* -------------------------------------------------------------------------
 //  文件名      :  spacewarentities.h
-//  创建者      :  classexam
+//  创建者      :  陈正翔
 //  创建时间    :  2026-05-11
 //  功能描述    :  DTOs for enemies, bullets, and explosions in Space War.
-//  版权信息    :  Copyright (c) classexam. All rights reserved.
 // -------------------------------------------------------------------------*/
 
 #ifndef __CLASSEXAM_SPACEWARENTITIES_H__

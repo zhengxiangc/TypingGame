@@ -1,9 +1,8 @@
 /* -------------------------------------------------------------------------
 //  文件名      :  spacewargame.cpp
-//  创建者      :  classexam
+//  创建者      :  陈正翔
 //  创建时间    :  2026-05-11
 //  功能描述    :  Space War view: rendering, settings, reward-mode Deepseek integration.
-//  版权信息    :  Copyright (c) classexam. All rights reserved.
 // -------------------------------------------------------------------------*/
 
 #include "spacewargame.h"

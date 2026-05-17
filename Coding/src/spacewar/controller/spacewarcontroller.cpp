@@ -1,9 +1,8 @@
 /* -------------------------------------------------------------------------
 //  文件名      :  spacewarcontroller.cpp
-//  创建者      :  classexam
+//  创建者      :  陈正翔
 //  创建时间    :  2026-05-11
 //  功能描述    :  Space War simulation: enemies, bullets, explosions, reward word flight.
-//  版权信息    :  Copyright (c) classexam. All rights reserved.
 // -------------------------------------------------------------------------*/
 
 #include "spacewarcontroller.h"

@@ -3,7 +3,6 @@
 //  创建者      :  classexam
 //  创建时间    :  2026-05-11
 //  功能描述    :  Stand-alone Space War executable entry (optional external CMake project).
-//  版权信息    :  Copyright (c) classexam. All rights reserved.
 // -------------------------------------------------------------------------*/
 
 #include "spacewargame.h"
