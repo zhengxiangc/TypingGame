@@ -24,14 +24,14 @@ constexpr int gs_explosionFrames = 8;
 
 KCTSpaceWarController::KCTSpaceWarController() = default;
 
-void KCTSpaceWarController::startGame(const KCTSpaceWarConfig& config)
+void KCTSpaceWarController::startGame(const KCTSpaceWarConfig& config, int gameWidth, int playerWidth)
 {
     Q_UNUSED(config);
     m_data.enemies.clear();
     m_data.usedLetters.clear();
     m_data.bullets.clear();
     m_data.explosions.clear();
-    m_data.playerX = 375;
+    m_data.playerX = qMax(0.0, static_cast<double>(gameWidth - playerWidth) * 0.5);
     m_data.playerVelX = std::abs(m_data.playerVelX) > 0.1 ? m_data.playerVelX : 2.8;
     m_data.score = 0;
     m_data.health = 18;
@@ -213,6 +213,7 @@ void KCTSpaceWarController::trySpawnEnemy(const KCTSpaceWarConfig& config, int g
     enemy.x = enemy.anchorX;
     enemy.y = -enemySize;
     enemy.phase = QRandomGenerator::global()->generateDouble() * 2.0 * gs_mathPi;
+    enemy.isMeteor = QRandomGenerator::global()->bounded(0, 100) < 28;
     m_data.enemies.append(enemy);
     m_data.usedLetters.append(letter);
 }
@@ -386,6 +387,48 @@ void KCTSpaceWarController::updateFlyingRewardWord(int deltaMs, int gameWidth)
         m_data.flyingRewardWord.text.clear();
         m_data.rewardTypingIndex = 0;
     }
+}
+
+void KCTSpaceWarController::rescaleEntitiesForGameSize(int oldGameWidth, int oldGameHeight, int newGameWidth,
+                                                       int newGameHeight)
+{
+    if (oldGameWidth <= 0 || oldGameHeight <= 0 || newGameWidth <= 0 || newGameHeight <= 0) {
+        return;
+    }
+
+    const double scaleX = static_cast<double>(newGameWidth) / static_cast<double>(oldGameWidth);
+    const double scaleY = static_cast<double>(newGameHeight) / static_cast<double>(oldGameHeight);
+
+    m_data.playerX *= scaleX;
+
+    for (KCTEnemyEntity& enemy : m_data.enemies) {
+        enemy.x *= scaleX;
+        enemy.y *= scaleY;
+        enemy.anchorX *= scaleX;
+    }
+
+    for (KCTBulletEntity& bullet : m_data.bullets) {
+        bullet.x *= scaleX;
+        bullet.y *= scaleY;
+        bullet.vx *= scaleX;
+        bullet.vy *= scaleY;
+    }
+
+    for (KCTExplosionEntity& explosion : m_data.explosions) {
+        explosion.x *= scaleX;
+        explosion.y *= scaleY;
+    }
+
+    if (m_data.flyingRewardWord.active) {
+        m_data.flyingRewardWord.x *= scaleX;
+        m_data.flyingRewardWord.y *= scaleY;
+        m_data.flyingRewardWord.velocityXPixelsPerSec *= scaleX;
+    }
+}
+
+void KCTSpaceWarController::centerPlayer(int gameWidth, int playerWidth)
+{
+    m_data.playerX = qMax(0.0, static_cast<double>(gameWidth - playerWidth) * 0.5);
 }
 
 KCTSpaceWarController::RewardKeyResult KCTSpaceWarController::handleFlyingRewardWordKey(QChar keyUppercase)

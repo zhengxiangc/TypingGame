@@ -10,10 +10,17 @@
 
 #include <QApplication>
 #include <QCoreApplication>
+#include <QTranslator>
 
 int main(int argc, char *argv[])
 {
     QApplication application(argc, argv);
+
+    auto* translator = new QTranslator(&application);
+    if (translator->load(QStringLiteral(":/i18n/TypingGame_zh_CN.qm"))) {
+        QCoreApplication::installTranslator(translator);
+    }
+
     KCTMainWindow mainWindow;
     mainWindow.show();
     return QCoreApplication::exec();

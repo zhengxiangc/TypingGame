@@ -2,8 +2,12 @@ TypingGame runtime assets (copied next to TypingGame.exe on each build)
 
 Relative to the executable directory (QCoreApplication::applicationDirPath()):
 
-  assets/sounds/   Short WAV files for QSoundEffect (see assets/sounds/README.txt)
-  assets/music/    Background music (see assets/music/README.txt)
+  assets/sounds/           Save Apples SFX (hit.wav, miss.wav, level.wav)
+  assets/sounds/spacewar/  Space War SFX (SPACE_*.wav, UPGRADE.wav)
+  assets/music/            Save Apples BGM (bgm.mp3)
+  assets/music/spacewar/   Space War BGM (SPACE_BG.wav)
+  assets/images/spacewar/  Space War sprites and HUD (see images/spacewar/README.txt)
+  assets/images/menu/      Main menu logo, header, game thumbnails (see images/menu/README.txt)
 
 If audio files are missing, the game still runs; SFX/BGM are skipped until you add files.
 

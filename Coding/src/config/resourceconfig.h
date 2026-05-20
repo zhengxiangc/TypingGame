@@ -15,9 +15,10 @@ class KCTResourceConfig
 {
 public:
     static QString gameBackgroundStyle();
-    static QString exitButtonStyle();
-    static QString settingsButtonStyle();
-    static QString pauseButtonStyle();
+    static QString exitButtonStyle(int fontSizePx = 12);
+    static QString settingsButtonStyle(int fontSizePx = 12);
+    static QString pauseButtonStyle(int fontSizePx = 12);
+    static QString spaceWarEnemyLabelStyle(int fontSizePx, int borderRadiusPx);
     static QString appleStyle();
     static QString levelMessageStyle();
     static QString dialogStyle();

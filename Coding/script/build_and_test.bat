@@ -23,8 +23,8 @@ if "%QT_ROOT%"=="" (
 
 rem Build tree: <classexam>\build (single folder; VS multi-config uses --config)
 set BUILD_DIR=build
-echo Configure: -S Coding -B %BUILD_DIR%  (cwd: classexam)
-cmake -S Coding -B "%BUILD_DIR%" -DCMAKE_PREFIX_PATH="%QT_ROOT%"
+echo Configure: -S Coding -B %BUILD_DIR% -G "Visual Studio 17 2022" -A x64  (cwd: classexam)
+cmake -S Coding -B "%BUILD_DIR%" -G "Visual Studio 17 2022" -A x64 -DCMAKE_PREFIX_PATH="%QT_ROOT%"
 if errorlevel 1 exit /b 1
 
 echo Build %CONFIG% ...

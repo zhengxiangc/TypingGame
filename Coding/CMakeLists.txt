@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.19)
 project(TypingGame LANGUAGES CXX)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core Network Widgets Multimedia LinguistTools Test)
+find_package(Qt6 6.5 REQUIRED COMPONENTS Core Gui Network Widgets Multimedia LinguistTools Test)
 
 qt_standard_project_setup()
 
@@ -21,6 +21,8 @@ target_compile_features(typinggame_logic PUBLIC cxx_std_20)
 
 # Config + background services (GUI app only)
 qt_add_library(typinggame_infra STATIC
+    "${TG_SRC}/config/gameviewport.cpp"
+    "${TG_SRC}/config/gameviewport.h"
     "${TG_SRC}/config/resourceconfig.cpp"
     "${TG_SRC}/config/resourceconfig.h"
     "${TG_SRC}/services/asynclogger.cpp"
@@ -44,6 +46,7 @@ target_include_directories(typinggame_infra PUBLIC "${TG_SRC}")
 target_link_libraries(typinggame_infra
     PUBLIC
         Qt::Core
+        Qt::Gui
         Qt::Network
         Qt::Multimedia
 )
@@ -55,6 +58,10 @@ set(SW_SRC "${TG_SRC}/spacewar")
 qt_add_library(spacewar_embed STATIC
     "${SW_SRC}/controller/spacewarcontroller.cpp"
     "${SW_SRC}/controller/spacewarcontroller.h"
+    "${SW_SRC}/spacewarassets.cpp"
+    "${SW_SRC}/spacewarassets.h"
+    "${SW_SRC}/spacewaraudio.cpp"
+    "${SW_SRC}/spacewaraudio.h"
     "${SW_SRC}/spacewargame.cpp"
     "${SW_SRC}/spacewargame.h"
 )
@@ -74,7 +81,8 @@ qt_add_executable(TypingGame
     "${TG_SRC}/main.cpp"
     "${TG_SRC}/mainwindow.cpp"
     "${TG_SRC}/mainwindow.h"
-    "${TG_SRC}/mainwindow.ui"
+    "${TG_SRC}/menu/menuassets.cpp"
+    "${TG_SRC}/menu/menuassets.h"
     "${TG_SRC}/applegame.h"
     "${TG_SRC}/applegame.cpp"
 )

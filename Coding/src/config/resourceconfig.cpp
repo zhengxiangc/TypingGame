@@ -15,19 +15,31 @@ QString KCTResourceConfig::gameBackgroundStyle()
     return "background-color: rgb(30, 30, 40);";
 }
 
-QString KCTResourceConfig::exitButtonStyle()
+QString KCTResourceConfig::exitButtonStyle(int fontSizePx)
 {
-    return "background-color: #ff4444; color: white; font-size: 12px; font-weight: bold; border-radius: 5px;";
+    return QStringLiteral("background-color: #ff4444; color: white; font-size: %1px; font-weight: bold; border-radius: 5px;")
+        .arg(fontSizePx);
 }
 
-QString KCTResourceConfig::settingsButtonStyle()
+QString KCTResourceConfig::settingsButtonStyle(int fontSizePx)
 {
-    return "background-color: #2196F3; color: white; font-size: 12px; font-weight: bold; border-radius: 5px;";
+    return QStringLiteral("background-color: #2196F3; color: white; font-size: %1px; font-weight: bold; border-radius: 5px;")
+        .arg(fontSizePx);
 }
 
-QString KCTResourceConfig::pauseButtonStyle()
+QString KCTResourceConfig::pauseButtonStyle(int fontSizePx)
 {
-    return "background-color: #ffaa00; color: white; font-size: 12px; font-weight: bold; border-radius: 5px;";
+    return QStringLiteral("background-color: #ffaa00; color: white; font-size: %1px; font-weight: bold; border-radius: 5px;")
+        .arg(fontSizePx);
+}
+
+QString KCTResourceConfig::spaceWarEnemyLabelStyle(int fontSizePx, int borderRadiusPx)
+{
+    return QStringLiteral(
+               "background-color: #37474f; border: 2px solid #90a4ae; border-radius: %1px; "
+               "color: #eceff1; font-size: %2px; font-weight: bold;")
+        .arg(borderRadiusPx)
+        .arg(fontSizePx);
 }
 
 QString KCTResourceConfig::appleStyle()

@@ -18,6 +18,7 @@ struct KCTEnemyEntity
     double y = 0;
     double anchorX = 0;
     double phase = 0;
+    bool isMeteor = false;
 };
 
 struct KCTBulletEntity

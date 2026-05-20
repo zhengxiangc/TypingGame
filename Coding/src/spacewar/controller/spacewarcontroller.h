@@ -26,7 +26,9 @@ public:
 
     KCTSpaceWarController();
 
-    void startGame(const KCTSpaceWarConfig& config);
+    void startGame(const KCTSpaceWarConfig& config, int gameWidth, int playerWidth);
+    void rescaleEntitiesForGameSize(int oldGameWidth, int oldGameHeight, int newGameWidth, int newGameHeight);
+    void centerPlayer(int gameWidth, int playerWidth);
     void setState(KCTSpaceWarStateData::GameState newState);
     KCTSpaceWarStateData::GameState state() const;
 
