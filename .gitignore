@@ -50,11 +50,11 @@ Release/
 *.swp
 *~
 
-# 运行期产物（相对可执行文件目录，见 Coding/ReadMe.md §7）
+# 运行期产物
 logs/
 telemetry/
 
-# 本地 CMake 用户预设（可选，不入库）
+# 本地 CMake 用户预设
 CMakeUserPresets.json
 
 学习文件/
